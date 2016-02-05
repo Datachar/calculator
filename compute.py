@@ -1,12 +1,22 @@
+
+
+def main(data):
+    while '(' in data:
+        tmp =  calc_with_brackets(data)
+
+
 def calc_with_brackets(data):
-    tmp = []
+    res = []
     n = len(data) - 1
     for i in range(n-1, 0, -1):
         if data[i] == '(':
             k = data.index(')')
-            tmp = data[i+1:k]
-            break
-    return tmp
+            res = data[i+1:k]
+            res_compute = str(compute(res))
+            tmp = []
+            tmp.append(res_compute)
+            data[i:k+1] = tmp
+    return data
 
 def calc_md(data):
     while '*' in data or '/' in data:
@@ -26,7 +36,6 @@ def calc_md(data):
             return data
     return data
 
-
 def compute(data):
     calc_md(data)
     result = int(data[0])
@@ -37,13 +46,7 @@ def compute(data):
         elif data[elem] == '-':
             result -= int(data[elem+1])
     return result
-'''
-def main(data):
-    if '(' in data:
-        calc_with_brackets(data)
-    else:
-        compute(data)
-'''
+
 if __name__ == '__main__':
     print(compute(['1', '+', '2', '/', '2']))
     print(calc_with_brackets(['1' ' + ','(','4','-','2',')',]))
