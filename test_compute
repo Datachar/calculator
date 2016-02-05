@@ -1,4 +1,5 @@
 from unittest.case import TestCase
+from compute import calculate
 
 
 class TestCompute(TestCase):
