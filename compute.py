@@ -42,7 +42,11 @@ def compute(data):
     if len(data) == 1:
         return data
     calc_md(data)
+    if data[0] == '-':
+        data[0] = int(data[1]) * (-1)
+
     result = int(data[0])
+
     data = data[1:]
     for elem in range(0, len(data)):
         if data[elem] == '+':
@@ -50,9 +54,8 @@ def compute(data):
         elif data[elem] == '-':
             result -= int(data[elem+1])
     return result
-'''
+
 if __name__ == '__main__':
     data = ['(','2', '*', '4', '+', '8',')', '/', '4']
-    data = ['1', '+', '(', '7', '-', '2', ')' ]
+    data = [ '4', '*','(','-', '8',')']
     print(calculate(data))
-'''
