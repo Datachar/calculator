@@ -1,15 +1,20 @@
 
-
 def main(data):
-    while '(' in data:
-        tmp =  calc_with_brackets(data)
-
+    tmp = data
+    while '(' in tmp:
+        tmp = calc_with_brackets(data)
+        print(tmp)
+    result = compute(tmp)
+    return result
 
 def calc_with_brackets(data):
     res = []
-    n = len(data) - 1
-    for i in range(n-1, 0, -1):
+    i = len(data)
+    while i > 0:
+        print(i)
+        i -= 1
         if data[i] == '(':
+            print(i)
             k = data.index(')')
             res = data[i+1:k]
             res_compute = str(compute(res))
@@ -37,6 +42,8 @@ def calc_md(data):
     return data
 
 def compute(data):
+    if len(data) == 1:
+        return data
     calc_md(data)
     result = int(data[0])
     data = data[1:]
@@ -48,5 +55,5 @@ def compute(data):
     return result
 
 if __name__ == '__main__':
-    print(compute(['1', '+', '2', '/', '2']))
-    print(calc_with_brackets(['1' ' + ','(','4','-','2',')',]))
+    data = ['2', '*', '4', '+', '8', '/', '4']
+    print(main(data))
