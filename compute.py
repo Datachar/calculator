@@ -1,5 +1,12 @@
 def calc_with_brackets(data):
-    pass
+    tmp = []
+    n = len(data) - 1
+    for i in range(n-1, 0, -1):
+        if data[i] == '(':
+            k = data.index(')')
+            tmp = data[i+1:k]
+            break
+    return tmp
 
 def calc_md(data):
     while '*' in data or '/' in data:
@@ -39,3 +46,4 @@ def main(data):
 '''
 if __name__ == '__main__':
     print(compute(['1', '+', '2', '/', '2']))
+    print(calc_with_brackets(['1' ' + ','(','4','-','2',')',]))
