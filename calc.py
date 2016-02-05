@@ -1,1 +1,1 @@
-Some file
+print ('Hello')
