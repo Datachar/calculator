@@ -1,9 +1,8 @@
 
-def main(data):
+def calculate(data):
     tmp = data
     while '(' in tmp:
         tmp = calc_with_brackets(data)
-        print(tmp)
     result = compute(tmp)
     return result
 
@@ -11,10 +10,8 @@ def calc_with_brackets(data):
     res = []
     i = len(data)
     while i > 0:
-        print(i)
         i -= 1
         if data[i] == '(':
-            print(i)
             k = data.index(')')
             res = data[i+1:k]
             res_compute = str(compute(res))
@@ -53,7 +50,9 @@ def compute(data):
         elif data[elem] == '-':
             result -= int(data[elem+1])
     return result
-
+'''
 if __name__ == '__main__':
-    data = ['2', '*', '4', '+', '8', '/', '4']
-    print(main(data))
+    data = ['(','2', '*', '4', '+', '8',')', '/', '4']
+    data = ['1', '+', '(', '7', '-', '2', ')' ]
+    print(calculate(data))
+'''
