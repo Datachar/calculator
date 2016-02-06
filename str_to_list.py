@@ -8,29 +8,21 @@ def str_to_list(expression):
     return expression
 
 
-def remove_space(expression_l):
-    i = 0
-    while i != len(expression_l):
-        if expression_l[i] == ' ':
-            expression_l.pop(i)
-        else:
-            i += 1
-    if len(expression_l) == 0:
-        return expression_l
-    return expression_l
+def remove_space(expression):
+    return [char for char in expression if char != ' ']
 
 
-def gluing_numbers(expression_l):
+def gluing_numbers(expression):
     i = 0
-    number_l = list(range(10))
+    number = list(range(10))
     op = False
-    while i != len(expression_l):
-        if expression_l[i] in str(number_l) or op == True:
-            if i + 1 == len(expression_l):
+    while i != len(expression):
+        if expression[i] in str(number) or op == True:
+            if i + 1 == len(expression):
                 break
-            elif expression_l[i + 1] in str(number_l):
-                expression_l[i] = expression_l[i] + expression_l[i + 1]
-                expression_l.pop(i + 1)
+            elif expression[i + 1] in str(number):
+                expression[i] = expression[i] + expression[i + 1]
+                expression.pop(i + 1)
                 op = True
             else:
                 i += 1
@@ -38,48 +30,48 @@ def gluing_numbers(expression_l):
         else:
             i += 1
             op = False
-    return expression_l
+    return expression
 
 
-def gluing_float_numbers(expression_l):
+def gluing_float_numbers(expression):
     i = 0
-    while i != len(expression_l):
-        if expression_l[i] == '.':
-            s = expression_l[i]
-            expression_l.pop(i)
+    while i != len(expression):
+        if expression[i] == '.':
+            s = expression[i]
+            expression.pop(i)
             i -= 1
-            while expression_l[i + 1] == '.':
-                s = s + expression_l[i + 1]
-                expression_l.pop(i + 1)
-            if (i != len(expression_l)) or i != 0:
-                expression_l[i] = expression_l[i] + s + expression_l[i + 1]
-                expression_l.pop(i + 1)
+            while expression[i + 1] == '.':
+                s = s + expression[i + 1]
+                expression.pop(i + 1)
+            if (i != len(expression)) or i != 0:
+                expression[i] = expression[i] + s + expression[i + 1]
+                expression.pop(i + 1)
         i += 1
-    return expression_l
+    return expression
 
 
-def gluing_log(expression_l):
+def gluing_log(expression):
     i = 0
-    while i != len(expression_l):
-        if expression_l[i] == 'l':
-            if expression_l[i + 1] != len(expression_l) and \
-                            expression_l[i + 1] == 'o':
-                if expression_l[i + 2] != len(expression_l) and \
-                                expression_l[i + 2] == 'g':
-                    if expression_l[i + 3] != len(expression_l) and \
-                                    expression_l[i + 3] == '(':
-                        expression_l[i] = expression_l[i] + expression_l[i + 1] \
-                                          + expression_l[i + 2] + expression_l[i + 3]
-                        expression_l.pop(i + 1)
-                        expression_l.pop(i + 1)
-                        expression_l.pop(i + 1)
+    while i != len(expression):
+        if expression[i] == 'l':
+            if expression[i + 1] != len(expression) and \
+                            expression[i + 1] == 'o':
+                if expression[i + 2] != len(expression) and \
+                                expression[i + 2] == 'g':
+                    if expression[i + 3] != len(expression) and \
+                                    expression[i + 3] == '(':
+                        expression[i] = expression[i] + expression[i + 1] \
+                                        + expression[i + 2] + expression[i + 3]
+                        expression.pop(i + 1)
+                        expression.pop(i + 1)
+                        expression.pop(i + 1)
         i += 1
-    return expression_l
+    return expression
 
 
-def negative_mul_for_first(expression_l):
-    if expression_l[0] == '-':
-        if len(expression_l) > 3 and (expression_l[2] == '*' or expression_l[2] == '/'):
-            expression_l.insert(0, '(')
-            expression_l.insert(3, ')')
-    return expression_l
+def negative_mul_for_first(expression):
+    if expression[0] == '-':
+        if len(expression) > 3 and (expression[2] == '*' or expression[2] == '/'):
+            expression.insert(0, '(')
+            expression.insert(3, ')')
+    return expression
