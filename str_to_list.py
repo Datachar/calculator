@@ -77,5 +77,5 @@ def negative_mul_for_first(expression):
     return expression
 '''
 if __name__ == '__main__':
-    print(str_to_list('4 4 +- 11'))
-    '''
+    print(str_to_list('(32 * (23 +8 * 4) - 25 /84 + (15 *554))'))
+'''

@@ -16,3 +16,7 @@ def ln(x):
         for i in range(1,10000):
             sum += ((-1)**(i+1)*x**i)/i
         return sum
+'''
+if __name__ == '__main__':
+    print(ln(5))
+    '''

@@ -1,5 +1,17 @@
 
 def calculate(data):
+    left_b = 0
+    right_b = 0
+    for i in data:
+        if i == '(':
+            left_b += 1
+        elif i == ')':
+            right_b += 1
+    if left_b != right_b:
+        raise ValueError
+    for i in data:
+        if data[0] == '(' and data[-1] == ')':
+            data = data[1:-1]
     tmp = data
     while '(' in tmp:
         tmp = calc_with_brackets(data)
@@ -44,6 +56,10 @@ def compute(data):
     for i in data:
         if i.isalpha():
             raise ValueError
+        '''
+    if data[0] == '(' and data[-1] == ')':
+        data = data[1:-1]
+        '''
     if len(data) == 1:
         return float(data[0])
     calc_md(data)
@@ -61,7 +77,7 @@ def compute(data):
 if __name__ == '__main__':
     #data = ['(', '1', '+', '3', ')', '/', '(', '4', '-', '3', ')']
     data = ['(', '7', '+', '3', ')', '*', '4']
-    data = ['7', '+', 'k']
+    data = ['(', '32', '*', '(', '23', '+', '8', '*', '4', ')', '-', '25', '/', '84', '+', '(', '15', '*', '554', ')', ')']
     print(data)
     print(calculate(data))
 '''
