@@ -1,5 +1,5 @@
 from unittest.case import TestCase
-from log import ln
+from log import log
 import math
 
 class TestStrToList(TestCase):
@@ -16,4 +16,4 @@ class TestStrToList(TestCase):
         ]
 
         for equation, expected_result in equations:
-            self.assertEquals(format(ln(equation),'.10f'), format(expected_result,'.10f'))
+            self.assertEquals(format(log(equation),'.10f'), format(expected_result,'.10f'))
