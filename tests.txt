@@ -2,7 +2,7 @@ input:
 output: error but not crash
 
 input:   8  8  +    10 - 8
-output: 90
+output: ['8',
 
 input:   10++2
 output: error but not crash

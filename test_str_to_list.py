@@ -1,5 +1,5 @@
 from unittest.case import TestCase
-
+from str_to_list import str_to_list
 
 class TestStrToList(TestCase):
     def test_str_to_list(self):
@@ -9,7 +9,7 @@ class TestStrToList(TestCase):
             ('1 + 2', ['1', '+', '2']),
             ('1 + 2 - 3', ['1', '+', '2', '-', '3']),
             ('(1 + 2)', ['(', '1', '+', '2', ')']),
-            (' 6 6 * 0 . 2581', ['6', '6', '*', '0', '.', '2581']),
+            (' 6 6 * 0 . 2581', ['66', '*', '0.2581']),
             ('log(5)', ['log(', '5', ')']),
             ('0..002', ['0..002']),
             ('-4*8', ['(', '-', '4', ')', '*', '8']),
