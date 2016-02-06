@@ -12,14 +12,6 @@ try:
         result = ln(data)
         print('output: %s' % result)
     else:
-        if input_data == '':
-            raise ValueError
-        n = len(input_data) - 1
-        for i in range(0, n):
-            if input_data[i].isdigit() and input_data[i+2].isdigit() and input_data[i+1] == ' ':
-                raise ValueError
-            if input_data[i].isalpha():
-                raise ValueError
         data = str_to_list(input_data)
         result = calculate(data)
         print('output: %d' % result)

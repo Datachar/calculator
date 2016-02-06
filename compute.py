@@ -41,8 +41,11 @@ def calc_md(data):
     return data
 
 def compute(data):
+    for i in data:
+        if i.isalpha():
+            raise ValueError
     if len(data) == 1:
-        return data
+        return float(data[0])
     calc_md(data)
     if data[0] is '-':
         data[0] = float(data[1]) * (-1)
@@ -54,10 +57,11 @@ def compute(data):
         elif data[elem] == '-':
             result -= float(data[elem+1])
     return result
-
+'''
 if __name__ == '__main__':
     #data = ['(', '1', '+', '3', ')', '/', '(', '4', '-', '3', ')']
     data = ['(', '7', '+', '3', ')', '*', '4']
+    data = ['7', '+', 'k']
     print(data)
     print(calculate(data))
-
+'''
