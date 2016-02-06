@@ -1,6 +1,11 @@
 def str_to_list(expression):
-    expression_l = list(expression)
-    return negative_mul_for_first(gluing_log(gluing_float_numbers(gluing_numbers(remove_space(expression_l)))))
+    expression = list(expression)
+    expression = remove_space(expression)
+    expression = gluing_numbers(expression)
+    expression = gluing_float_numbers(expression)
+    expression = gluing_log(expression)
+    expression = negative_mul_for_first(expression)
+    return expression
 
 
 def remove_space(expression_l):
