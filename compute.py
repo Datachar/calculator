@@ -65,6 +65,8 @@ def compute(data):
     calc_md(data)
     if data[0] is '-':
         data[0] = float(data[1]) * (-1)
+    elif data[0] is '+':
+        data[0] = float(data[1])
     result = float(data[0])
     data = data[1:]
     for elem in range(0, len(data)):

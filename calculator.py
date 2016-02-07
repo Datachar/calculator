@@ -1,6 +1,6 @@
 from str_to_list import str_to_list
 from compute import calculate
-from log import ln
+from log import log
 
 def calculator(data):
     try:
@@ -10,7 +10,7 @@ def calculator(data):
             i = input_data.index('(')
             k = input_data.index(')')
             data = float(input_data[i+1:k])
-            result = ln(data)
+            result = log(data)
             return result
             #print('output: %s' % result)
         else:
@@ -22,5 +22,5 @@ def calculator(data):
     except ZeroDivisionError:
         print('bad input')
 
-    except ValueError:
+    except ValueError:  
         print('bad input')

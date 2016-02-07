@@ -9,15 +9,16 @@ class TestCalc(TestCase):
             ('2 * ( 25 + 2 )', 54),
             ('( - 4 ) * 8', -32),
             ('0 * 0.002', 0),
+            ('+5', 5),
             ('(32 * (23 +8 * 4) - 25 /84 + (15 *554))', 10069.702380952382),
         ]
         test_data_complex = [
-            ('log(5)', 1.6094379124340998),
+            ('log(5)', 1.6094379124341003),
         ]
         test_wrong_data = [
             '4 + * 8',
             '(- 4) ( * 8',
-
+            '5 / 0',
             '( 5 - 1',
         ]
 
@@ -29,5 +30,5 @@ class TestCalc(TestCase):
 
 
         for input_data in test_wrong_data:
-            self.assertRaises(calculator(input_data), Exception)
+            self.assertRaises(Exception, calculator(input_data))
 
