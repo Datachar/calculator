@@ -1,10 +1,17 @@
 from str_to_list import str_to_list
 from compute import calculate
 from log import log
+from equation import calc_eq
 
 def calculator(data):
     try:
         #input_data = str(input('input: '))
+        if '=' in data:
+            data = str_to_list(data)
+            result = calc_eq(data)
+            result = 'x = ' + str(result)
+            return result
+
         input_data = data
         if 'log' in input_data:
             i = input_data.index('(')
@@ -24,3 +31,6 @@ def calculator(data):
 
     except ValueError:  
         print('bad input')
+
+input_data = str(input('input: '))
+print(calculator(input_data))
