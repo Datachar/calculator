@@ -75,11 +75,3 @@ def compute(data):
         elif data[elem] == '-':
             result -= float(data[elem+1])
     return result
-'''
-if __name__ == '__main__':
-    #data = ['(', '1', '+', '3', ')', '/', '(', '4', '-', '3', ')']
-    data = ['(', '7', '+', '3', ')', '*', '4']
-    data = ['(', '32', '*', '(', '23', '+', '8', '*', '4', ')', '-', '25', '/', '84', '+', '(', '15', '*', '554', ')', ')']
-    print(data)
-    print(calculate(data))
-'''

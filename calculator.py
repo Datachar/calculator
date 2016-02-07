@@ -5,7 +5,6 @@ from equation import calc_eq
 
 def calculator(data):
     try:
-        #input_data = str(input('input: '))
         if '=' in data:
             data = str_to_list(data)
             result = calc_eq(data)
@@ -19,11 +18,9 @@ def calculator(data):
             data = float(input_data[i+1:k])
             result = log(data)
             return result
-            #print('output: %s' % result)
         else:
             data = str_to_list(input_data)
             result = calculate(data)
-            #print('output: %d' % result)
             return result
 
     except ZeroDivisionError:

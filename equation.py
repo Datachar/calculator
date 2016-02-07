@@ -57,10 +57,5 @@ def calc_eq(data):
     elif act_data == '/':
         result = right_part * float(data_near_x)
     return result
-'''
-if __name__ == '__main__':
-    data = ['(', '7', '+', '1', ')', '*', 'x', '=', '6']
-    data = ['x', '*', '2', '+', '0.5', '=', '1' ]    #2 * x + 0.5 = 1
-    calk(data)
-    '''
+
 
