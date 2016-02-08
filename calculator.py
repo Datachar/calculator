@@ -11,7 +11,7 @@ def calculator(data):
             if result == 'error':
                 raise ValueError
             else:
-                result = 'x = ' + str(result)
+                result = 'output: x = ' + str(result)
                 return result
 
         input_data = data
@@ -20,11 +20,11 @@ def calculator(data):
             k = input_data.index(')')
             data = float(input_data[i+1:k])
             result = log(data)
-            return result
+            return 'output: %s' % result
         else:
             data = str_to_list(input_data)
             result = calculate(data)
-            return result
+            return 'output: %s' % result
 
     except ZeroDivisionError:
         print('bad input')

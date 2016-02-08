@@ -49,12 +49,12 @@ def calc_eq(data):
         #print(data_with_x)
         data_without_x = 0
 
-        if len(data_with_x) > 3:
-            data_with_x.remove(data_near_x)
-            data_with_x.remove(act_data)
+        #if len(data_with_x) > 3:
+        data_with_x.remove(data_near_x)
+        data_with_x.remove(act_data)
 
-            data_with_x.remove('x')
-            '''
+        data_with_x.remove('x')
+        '''
             if data_with_x[x_index-1] == '+' and data_with_x[x_index] == '+':
                 data_with_x[x_index-1:x_index+1] = '+'
                 data_without_x = calculate(data_with_x)
@@ -65,21 +65,23 @@ def calc_eq(data):
                 data_with_x[x_index-1:x_index+1] = '-'
                 data_without_x = calculate(data_with_x)
             '''
-            #print(data_with_x)
-            i = 0
-            for i in range(1, len(data_with_x)-1):
-                if data_with_x[i-1] == '+' and data_with_x[i] == '+':
-                    data_with_x[i-2:i+1] = '+'
-                elif data_with_x[i-1] == '+' and data_with_x[i] == '-':
-                    data_with_x[i-2:i+1] = '-'
-                elif data_with_x[i-1] == '-' and data_with_x[i] == '+':
-                    data_with_x[i-2:i+1] = '-'
-                elif data_with_x[i-1] == '-' and data_with_x[i] == '-':
-                    data_with_x[i-2:i+1] = '+'
-
-
-        data_without_x = calculate(data_with_x)
         #print(data_with_x)
+        i = 0
+        for i in range(1, len(data_with_x)-1):
+            if data_with_x[i-1] == '+' and data_with_x[i] == '+':
+                data_with_x[i-2:i+1] = '+'
+            elif data_with_x[i-1] == '+' and data_with_x[i] == '-':
+                data_with_x[i-2:i+1] = '-'
+            elif data_with_x[i-1] == '-' and data_with_x[i] == '+':
+                data_with_x[i-2:i+1] = '-'
+            elif data_with_x[i-1] == '-' and data_with_x[i] == '-':
+                data_with_x[i-2:i+1] = '+'
+
+        if data_with_x:
+            data_without_x = calculate(data_with_x)
+        else:
+            data_without_x = calculate(data_near_x)
+        print(data_with_x)
         if data_with_x:
             right_part -= data_without_x
         else:
