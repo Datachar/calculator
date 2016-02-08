@@ -8,8 +8,11 @@ def calculator(data):
         if '=' in data:
             data = str_to_list(data)
             result = calc_eq(data)
-            result = 'x = ' + str(result)
-            return result
+            if result == 'error':
+                raise ValueError
+            else:
+                result = 'x = ' + str(result)
+                return result
 
         input_data = data
         if 'log' in input_data:
@@ -25,9 +28,10 @@ def calculator(data):
 
     except ZeroDivisionError:
         print('bad input')
-
+        exit()
     except ValueError:  
         print('bad input')
+        exit()
 
 input_data = str(input('input: '))
 print(calculator(input_data))
